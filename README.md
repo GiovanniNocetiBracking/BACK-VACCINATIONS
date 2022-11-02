@@ -34,5 +34,13 @@ $ npm run migrate
 ```shell
 $ npm run dev
 ```
-
+```.env data
+$ DB_USERNAME=postgres
+$ DB_PASSWORD=postgres
+$ DB_NAME=postgres
+$ DB_HOST=localhost
+$ DB_DIALECT=postgres
+$ TOKEN_SECRET=secret
+$ TOKEN_EXPIRATION="1h"
+```
 
