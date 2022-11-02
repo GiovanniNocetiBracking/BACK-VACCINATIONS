@@ -11,7 +11,7 @@ const doLogin = async (req, res, next) => {
       req.body.password,
       user.password
     );
-    if (!validPassword) 
+    if (!validPassword)
       return res.status(400).json({ error: "contraseña no válida" });
     const token = jwt.sign(
       {
