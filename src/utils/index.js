@@ -1,3 +1,4 @@
 const validateVaccination = require("src/utils/validateVaccination");
-
-module.exports = { validateVaccination };
+const Jwt = require("./jwt")
+const Bcrypt = require("./bcrypt")
+module.exports = { validateVaccination, Jwt, Bcrypt };

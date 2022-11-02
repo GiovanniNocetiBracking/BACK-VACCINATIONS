@@ -9,7 +9,7 @@ const apiErrorHandler = (err, req, res, next) => {
     return res.status(err.code).json(err.message);
   }
   
-  return res.status(500).json("Algo malo paso con el servidor");
+  return res.status(500).json(err);
 };
 
 module.exports = apiErrorHandler;

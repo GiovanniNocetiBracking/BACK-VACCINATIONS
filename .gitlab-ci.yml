@@ -1,0 +1,24 @@
+image: node:16.17.0
+
+stages:
+  - build
+  - test
+
+cache:
+  key:
+    files:
+      - package-lock.json
+      - yarn.lock
+  paths:
+    - node_modules/
+
+install_dependencies:
+  stage: build
+  script:
+    - yarn
+
+run_tests:
+  stage: test
+  needs:
+    - install_dependencies
+  script: yarn test

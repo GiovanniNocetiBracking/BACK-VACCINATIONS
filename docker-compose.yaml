@@ -1,6 +1,24 @@
 # Use postgres/example user/password credentials
 version: "3.1"
 services:
+  api:
+    image: sample-express-app
+    build: .
+    networks:
+      - backend
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./:/usr/src/app
+    environment:
+      DB_USERNAME: postgres
+      DB_PASSWORD: postgres
+      DB_NAME: postgres
+      DB_HOST: host.docker.internal
+      DB_DIALECT: postgres
+      TOKEN_SECRET: secret
+      TOKEN_EXPIRATION: "1h"
+      TOKEN_ALGORITHM: HS256
   db:
     image: postgres:11-alpine
     restart: always
@@ -18,3 +36,8 @@ services:
 volumes:
   db:
     external: true
+
+networks:
+  backend:
+    driver: bridge
+
